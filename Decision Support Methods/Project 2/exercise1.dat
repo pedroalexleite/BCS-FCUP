@@ -1,0 +1,38 @@
+set TASKS := t1 t2 t3 t4 t5;
+set SKILLS := c py web;
+set CODERS := p1 p2 p3;
+
+param a (tr):  c  py  web  :=
+        p1     1   1   1
+        p2     .   1   1
+        p3     1   .   1
+;
+
+param:           t       c :=
+        p1       4       5
+        p2      10       5
+        p3       7       5
+;
+
+param         v :=
+        t1    250
+        t2    150
+        t3    200
+        t4    100
+        t5    250
+;
+
+param     r (tr) :
+             c   py   web  :=
+        t1   5    .    2
+        t2   .    3    .
+        t3   .    6    3
+        t4   3    3    3
+        t5   2    3    2
+;
+
+param d :     p1  p2  p3   :=
+        c      5   .   5
+        py     5   3   .
+        web    1   5   1
+;

@@ -1,0 +1,39 @@
+model a02-e3.mod;
+data a02-e3.dat;
+option solver gurobi;
+
+printf "*** MAXIMIZING PROFIT: ***\n";
+objective profit_obj;
+solve;
+printf "tasks to complete:\n";
+for {k in TASKS : y[k] > 0.5} {
+    printf "%s\t", k;
+};
+printf "\n";
+for {k in TASKS} {
+    printf "%s\t", k;
+    for {j in CODERS: sum {i in SKILLS} x[i,j,k] > 0.5} printf "%s\t", j;
+    printf "\n";
+};
+printf "\n";
+
+printf "size of largest team: z=%g\n",
+       max {k in TASKS} sum {j in CODERS} if sum {i in SKILLS} x[i,j,k] > 0.5 then 1 else 0;
+display profit;
+
+
+printf "*** MINIMIZING TEAM SIZE: ***\n";
+param min_profit;
+let min_profit := profit;
+MINPROFIT: profit >= min_profit;
+
+objective z_obj;
+solve;
+for {k in TASKS} {
+    printf "%s\t", k;
+    for {j in CODERS: sum {i in SKILLS} x[i,j,k] > 0.5} printf "%s\t", j;
+    printf "\n";
+};
+printf "\n";
+
+display z, profit;

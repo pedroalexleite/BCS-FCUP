@@ -1,0 +1,34 @@
+data;
+
+set GAS := G1 G2 G3;
+set CRUDE := C1 C2 C3;
+set PRODUCTS := O N;
+
+param advertising_demand := 10;
+param prod_capacity := 14000;
+param advertising_price := 1;
+param distillary_price := 3;
+param refinement_price := 1;
+
+param adv_return;
+param adv_price :- 1;
+param crude_barrel_limit;
+param distillary_limit;
+param distillary_price := 3;
+param refinement_price := 1;
+param cracking_limit := 3500;
+param cracking_price := 4;
+
+param:   sales_price  gas_octane  demand  :=
+    G1        70          10       3000
+    G2        60           9       2000
+    G3        50           8       1000;
+
+param:   purchase_quan   purchase_price  naphtha   oil :=
+    C1        5000             45          0.5     0.42
+    C2        5000             35          0.6     0.38
+    C3        5000             25          0.55    0.41;
+
+param: octane_rating :=
+    O      6
+    N     10;
