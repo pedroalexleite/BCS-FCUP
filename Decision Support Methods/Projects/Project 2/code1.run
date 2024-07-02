@@ -1,0 +1,22 @@
+model a02-e1.mod;
+data a02-e1.dat;
+option solver gurobi;
+solve;
+
+printf "*** MAXIMIZING PROFIT: ***\n";
+option display_1col 0;
+display a;
+display r;
+display x;
+
+param min_profit;
+let min_profit := profit;
+MINPROFIT: profit >= min_profit;
+
+
+printf "*** MAXIMIZING SKILL: ***\n";
+maximize skill_obj: skill;
+objective skill_obj;
+solve;
+
+display skill, profit;
