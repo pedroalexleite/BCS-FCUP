@@ -1,0 +1,4 @@
+USE MOVIE_STREAM;
+
+DELETE FROM STREAM
+WHERE CustomerId IN (SELECT CustomerId FROM CUSTOMER WHERE Country='China' AND Charge <= 5.5);

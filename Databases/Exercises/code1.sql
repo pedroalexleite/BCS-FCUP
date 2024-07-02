@@ -1,0 +1,3 @@
+USE MOVIE_STREAM;
+
+SELECT Title, Year FROM Movie WHERE Duration>=180;

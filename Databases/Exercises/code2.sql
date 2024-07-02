@@ -1,0 +1,3 @@
+USE MOVIE_STREAM;
+
+SELECT Name, City, Country FROM CUSTOMER WHERE Name LIKE 'Ch%';
