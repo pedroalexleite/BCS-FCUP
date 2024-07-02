@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="mancala.js"></script>
+  <script type="text/javascript" src="trabalho2.js"></script>
+  <link rel="stylesheet" href="mancala.css">
+  <meta charset=UTF-8>
+  <title>Mancala</title>
+<body bgcolor="black">
+<body text="black">
+
+<center><h1><b>MANCALA</b></h1></center>
+
+<center>
+<div class="container" id="login">
+      <label>Username: </label>
+      <input type="text" placeholder="Username" name="username" id="username" required>
+      <label>Password: </label>
+      <input type="password" placeholder="Password" name="password" id="password" required>
+      <button type="submit" onclick="register(username.value,password.value);hidelogin()">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+</div></center>
+<br>
+
+
+<center>
+<div id="start_div">
+<span title="Jogadores semeiam as suas sementes alternadamente.
+Na sua vez semeiam a partir de uma das suas cavidades.
+Consoante a situação da última semente semeada, podem: voltar a jogar ou ficar com algumas sementes do adversário.
+Termina quando um dos jogadores fica sem sementes.">→Instruções←</span>
+<p>Nº de cavidades <input type="number" max="6" min="2" maxlength="1" id="cavidades"></p>
+<p>Nº incial de sementes <input type="number" max="19" min="2" maxlength="2" id="sementes"></p>
+<p>Jogar contra PC <input type="checkbox" name="Sim" id="sim" onclick="validate()">Sim <input type="checkbox" name="Nao" id="nao" onclick="validate_nao()">Não</p>
+<p hidden id="dificuldade">Dificuldade <select size=1 name=dificuldade>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+              </select>
+</p>
+<button hidden type="submit" id="start" onclick="hide_div();createboard();join(1,username.value,password.value,cavidades.value,sementes.value)">Começar</button>
+</center></div>
+
+<br>
+<center>
+<table id="classifica">
+    <tr>
+        <th>Jogadores</th>
+        <th>Vitórias</th>
+      </tr>
+      <tr>
+        <td>Pedro Carvalho</td>
+        <td>27</td>
+      </tr>
+      <tr>
+        <td>Pedro Leite</td>
+        <td>26</td>
+      </tr>
+      <tr>
+        <td>João Marrucho</td>
+        <td>22</td>
+      </tr>
+</table>
+</center>
+
+<center>
+<div id = "p1" hidden> A jogar: <b>Player1<b></div>
+<div id = "p2" hidden> A jogar: <b>Player2<b></div>
+<div id = "bot" hidden> A jogar: <b>Bot<b></div>
+</center>
+<br>
+<center>
+<div>
+    <div class="content" id="first" hidden></div>
+    <div class="content" id="second" hidden></div>
+    <div class="content" id="third" hidden></div>
+</div>
+</center>
+<center>
+<button hidden type="submit" id="give_up" onclick="hide_board();show_div()">Desistir</button>
+</center>
+
+</body>
+</html>
